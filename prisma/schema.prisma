@@ -1,0 +1,14 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db { 
+    provider = "mysql"
+    url      = "mysql://root:gVgUzEdlqOSsTPEqXvXcfxWKrXhsPBLb@mysql.railway.internal:3306/railway"
+}
+
+model usuario {
+  id Int @id @default(autoincrement())
+  Nome_Curso String
+  periodo String
+}
