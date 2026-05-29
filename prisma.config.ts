@@ -1,14 +1,12 @@
-import { defineConfig } from 'prisma/config'
-import { PrismaMySQL } from '@prisma/adapter-mariadb'
+import "dotenv/config";
+import { defineConfig, env } from "prisma/config";
 
 export default defineConfig({
-  earlyAccess: true,
-  schema: './prisma/schema.prisma',
-  migrate: {
-    async adapter(env) {
-      const { createPool } = await import('mariadb')
-      const pool = createPool(env.DATABASE_URL)
-      return new PrismaMySQL(pool)
-    }
-  }
-})
+  schema: "prisma/schema.prisma",
+  migrations: {
+    path: "prisma/migrations",
+  },
+  datasource: {
+    url: env("DATABASE_URL"),
+  },
+});

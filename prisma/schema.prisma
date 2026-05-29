@@ -2,12 +2,12 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db { 
-    provider = "mysql"
+datasource db {
+  provider = "mysql"
 }
 
 model usuario {
-  id Int @id @default(autoincrement())
+  id         Int    @id @default(autoincrement())
   Nome_Curso String
-  periodo String
+  periodo    String
 }
